@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head></h:head> 
+<h:body>
+	<h:dataTable border="1" value="#{listadoBackingBean.lista}" var="item" >
+		<h:column id="column1">
+			<f:facet name="header">
+				<h:outputText value="Nombre"></h:outputText>
+			</f:facet>
+			#{item.nombre}
+		</h:column>
+		<h:column id="column2">
+			<f:facet name="header">
+				<h:outputText value="Apellido"></h:outputText>
+			</f:facet>
+			#{item.apellido}
+		</h:column>
+	</h:dataTable>
+	<h:form>
+		<h:link>
+			<h:outputText value="Link" ></h:outputText>
+			<f:param name="nombre" value="Victor"></f:param>
+		</h:link>
+	</h:form>
+	<h:form>
+		<h:commandLink>
+			<h:outputText value="CommandLink"></h:outputText>
+		</h:commandLink>
+	</h:form>
+	<h:form>
+		<h:commandButton immediate="true" value="index"></h:commandButton>
+		<h:commandButton action="#{backingBean.metodo('borrar')}"></h:commandButton>
+		<h:commandButton actionListener="#{backingBean.establecerOrigen}" action="#{backingBean.accion}"></h:commandButton>
+	</h:form>
+	<h:outputText value="CommandLink" rendered="#{backingBea.mostrar}"></h:outputText>
+	<h:outputText value="CommandLink" binding="#{backingBean.outputText}"></h:outputText>
+</h:body> 
+</html>
