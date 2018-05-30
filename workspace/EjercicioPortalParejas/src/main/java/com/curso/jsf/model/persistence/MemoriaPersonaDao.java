@@ -17,6 +17,8 @@ public class MemoriaPersonaDao implements PersonaDao {
 	@ManagedProperty("#{tablaPersonas}")
 	private Map<Integer, Persona> personas; 
 	
+	private int contador = 1;
+	
 	public void setPersonas(Map<Integer, Persona> personas) {
 		this.personas = personas;
 	}
@@ -30,13 +32,14 @@ public class MemoriaPersonaDao implements PersonaDao {
 	
 	@PostConstruct
 	public void init() {
-		personas.put(1, new Persona(1, "victor", "victor", "Victor", "Herrero", 40, 1.8));
-		personas.put(2, new Persona(2, "jaime", "jaime", "Jaime", "Fernandez", 39, 1.85));
-		personas.put(3, new Persona(3, "victoria", "victoria", "Victoria", "Martinez", 39, 1.75));
+		add(new Persona(1, "victor", "victor", "Victor", "Herrero", 40, 1.8));
+		add(new Persona(2, "jaime", "jaime", "Jaime", "Fernandez", 34, 1.85));
+		add(new Persona(3, "victoria", "victoria", "Victoria", "Martinez", 39, 1.75));
 	}
 
 	@Override
 	public Integer add(Persona persona) {
+		persona.setId(contador++);
 		personas.put(persona.getId(), persona);
 		return persona.getId();
 	}

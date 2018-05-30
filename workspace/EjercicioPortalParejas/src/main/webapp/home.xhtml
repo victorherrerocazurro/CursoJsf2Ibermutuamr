@@ -6,9 +6,16 @@
 
 <h:head></h:head> 
 <h:body> 
+
+	<f:event listener="#{personaBackingBean.checkLogin}" type="preRenderView"></f:event>
+
+	<h:form>
+		<h:commandLink action="#{personaBackingBean.logout}" value="logout" />
+	</h:form>
+
 	<h:outputText value="Hola #{sessionScope.persona.nombre} #{sessionScope.persona.apellido}"/>
 	
-	<h:outputText value="Tu ideal es #{personaBackingBean.ideal}"/>
+	<h:outputText value="Tu ideal es #{personaBackingBean.ideal.nombre} #{personaBackingBean.ideal.apellido}"/>
 
 	<h:outputText value="Tus aFines son"/>
 

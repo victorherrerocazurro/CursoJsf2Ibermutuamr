@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+	<h:form id="formLogin">
+		<h:outputLabel value="Login" for="login" />
+		<h:inputText id="login" value="#{personaBackingBean.persona.login}"></h:inputText>
+		<h:outputLabel value="Password" for="password" />
+		<h:inputText id="password" value="#{personaBackingBean.persona.password}"></h:inputText>
+		<h:outputLabel value="Nombre" for="nombre" />
+		<h:inputText id="nombre" value="#{personaBackingBean.persona.nombre}"></h:inputText>
+		<h:outputLabel value="Apellido" for="apellido" />
+		<h:inputText id="apellido" value="#{personaBackingBean.persona.apellido}"></h:inputText>
+		<h:outputLabel value="Edad" for="edad" />
+		<h:inputText id="edad" value="#{personaBackingBean.persona.edad}"></h:inputText>
+		<h:outputLabel value="Altura" for="altura" />
+		<h:inputText id="altura" value="#{personaBackingBean.persona.altura}"></h:inputText>
+		<h:commandButton action="#{personaBackingBean.registrar()}" value="Alta"></h:commandButton>
+	</h:form>
+</h:head>
+<body>
+
+</body>
+</html>
