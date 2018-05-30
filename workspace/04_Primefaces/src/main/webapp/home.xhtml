@@ -1,0 +1,18 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<h:head></h:head> 
+<h:body> 
+
+	<p:chart type="donut" model="#{chartView.donutModel1}" style="width:400px;height:300px" />
+ 
+	<p:chart type="donut" model="#{chartView.donutModel2}" style="width:400px;height:300px" />
+	
+	<p:calendar id="inline" value="#{chartView.date1}" mode="inline" />
+
+</h:body> 
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:curso="http://jsf.curso.com"> 
+
+<h:head></h:head> 
+<h:body> 
+	<h:form>
+		<h:inputText id="nif" value="#{backingBean.nif}">
+			<f:converter converterId="nifConverter"></f:converter>
+		</h:inputText>
+		<h:message for="nif"></h:message>
+		<h:inputText id="cantidad" value="#{backingBean.cantidad}">
+			<f:convertNumber integerOnly="true"></f:convertNumber>
+		</h:inputText>
+		<h:message for="cantidad"></h:message>
+		<h:inputText id="mail" value="#{backingBean.mail}">
+			<f:validator validatorId="emailValidator"></f:validator>
+		</h:inputText>
+		<h:message for="mail"></h:message>
+		<curso:etiqueta/>
+		<h:commandButton action="#{backingBean.procesar()}"></h:commandButton>
+	</h:form>
+</h:body> 
+</html>
