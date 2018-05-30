@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head></h:head> 
+<h:body> 
+	<h:outputText value="Hola #{sessionScope.persona.nombre} #{sessionScope.persona.apellido}"/>
+	
+	<h:outputText value="Tu ideal es #{personaBackingBean.ideal}"/>
+
+	<h:outputText value="Tus aFines son"/>
+
+	<h:dataTable value="#{personaBackingBean.afines}" var="afin" border="1">
+		<h:column id="columnaNombre">
+			<f:facet name="header">
+				<h:outputText value="Nombre"></h:outputText>
+			</f:facet>
+			#{afin.nombre}
+		</h:column>
+		<h:column id="columnaApellido">
+			<f:facet name="header">
+				<h:outputText value="Apellido"></h:outputText>
+			</f:facet>
+			#{afin.apellido}
+		</h:column>
+	</h:dataTable>
+</h:body> 
+</html>
