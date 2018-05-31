@@ -7,7 +7,7 @@ import javax.faces.component.UIComponentBase;
 import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
 
-@FacesComponent(value="etiqueta")
+@FacesComponent(value="com.curso.jsf.component.EtiquetaUIComponent")
 public class EtiquetaUIComponent extends UIComponentBase {
 
 	@Override

@@ -8,6 +8,7 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
+import javax.faces.component.UIInput;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
@@ -23,6 +24,8 @@ public class PersonaBackingBean {
 
 	@ManagedProperty("#{simplePersonaServicio}")
 	private PersonaServicio servicio;
+	
+	//private UIInput inputLogin;
 	
 	private Persona persona = new Persona();
 	

@@ -7,7 +7,7 @@
 
 <ui:composition template="/WEB-INF/templates/plantilla.xhtml">
 
-	<ui:define name="pageTitle">Home</ui:define>
+	<ui:define name="pageTitle">#{msg['pages.home.title']}</ui:define>
 
 	<ui:define name="pageHeader">
 		<f:event listener="#{personaBackingBean.checkLogin}"
