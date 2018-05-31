@@ -5,20 +5,18 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
-import javax.faces.application.FacesMessage.Severity;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
-import javax.faces.bean.RequestScoped;
+import javax.faces.bean.ViewScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
-
 import javax.servlet.http.HttpSession;
 
 import com.curso.jsf.model.entities.Persona;
 import com.curso.jsf.model.service.PersonaServicio;
 
 @ManagedBean
-@RequestScoped
+@ViewScoped
 public class PersonaBackingBean {
 
 	private ExternalContext ec;
@@ -35,6 +33,7 @@ public class PersonaBackingBean {
 	@PostConstruct
 	public void init() {
 		ec = FacesContext.getCurrentInstance().getExternalContext();
+		ec.getSession(true);
 	}
 	
 	public void setServicio(PersonaServicio servicio) {
@@ -93,9 +92,13 @@ public class PersonaBackingBean {
 		return servicio.buscarIdeal(laQueBusca);
 	}
 	
+	private List<Persona> afines;
+	
 	public List<Persona> getAfines() {
 		Persona laQueBusca = (Persona) ec.getSessionMap().get("persona");
-		return servicio.buscarAfines(laQueBusca);
+		if (afines == null)
+			afines = servicio.buscarAfines(laQueBusca);
+		return afines;
 	}
 	
 	public String registrar() {

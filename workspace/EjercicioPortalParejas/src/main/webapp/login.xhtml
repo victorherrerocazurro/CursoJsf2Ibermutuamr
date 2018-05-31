@@ -2,18 +2,47 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html">
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
-	<h:form id="formLogin">
-		<h:message for="login" />
-		<h:inputText id="login" value="#{personaBackingBean.userName}"></h:inputText>
-		<h:inputSecret value="#{personaBackingBean.password}"></h:inputSecret>
-		<h:commandButton action="#{personaBackingBean.login}" value="Login"></h:commandButton>
-		<h:button outcome="registro?faces-redirect=true" value="Registro"/>
-	</h:form>
+	
 </h:head>
-<body>
+<h:body>
+	<h:form id="formLogin">
+		<p:panelGrid style="width: 100%;">
+			<p:row>
+				<p:column colspan="2">
+					<h:message for="login" />
+				</p:column>
+			</p:row>
+			<p:row>
+				<p:column colspan="1">
+					<h:outputLabel value="Login" for="login" />
+				</p:column>
+				<p:column colspan="1">
+					<h:inputText id="login" value="#{personaBackingBean.userName}"></h:inputText>
+				</p:column>
+			</p:row>
 
-</body>
+			<p:row>
+				<p:column colspan="1">
+					<h:outputLabel value="Password" for="password" />
+				</p:column>
+				<p:column colspan="1">
+					<h:inputSecret id="password" value="#{personaBackingBean.password}"></h:inputSecret>
+				</p:column>
+			</p:row>
+
+			<p:row>
+				<p:column colspan="1">
+					<h:commandButton action="#{personaBackingBean.login}" value="Login"></h:commandButton>
+				</p:column>
+				<p:column colspan="1">
+					<h:button outcome="registro?faces-redirect=true" value="Registro" />
+				</p:column>
+			</p:row>
+		</p:panelGrid>
+	</h:form>
+</h:body>
 </html>

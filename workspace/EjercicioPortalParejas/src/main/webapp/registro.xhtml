@@ -2,23 +2,79 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html">
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
 	<h:form id="formLogin">
-		<h:outputLabel value="Login" for="login" />
-		<h:inputText id="login" value="#{personaBackingBean.persona.login}"></h:inputText>
-		<h:outputLabel value="Password" for="password" />
-		<h:inputText id="password" value="#{personaBackingBean.persona.password}"></h:inputText>
-		<h:outputLabel value="Nombre" for="nombre" />
-		<h:inputText id="nombre" value="#{personaBackingBean.persona.nombre}"></h:inputText>
-		<h:outputLabel value="Apellido" for="apellido" />
-		<h:inputText id="apellido" value="#{personaBackingBean.persona.apellido}"></h:inputText>
-		<h:outputLabel value="Edad" for="edad" />
-		<h:inputText id="edad" value="#{personaBackingBean.persona.edad}"></h:inputText>
-		<h:outputLabel value="Altura" for="altura" />
-		<h:inputText id="altura" value="#{personaBackingBean.persona.altura}"></h:inputText>
-		<h:commandButton action="#{personaBackingBean.registrar()}" value="Alta"></h:commandButton>
+	<p:panelGrid style="width: 100%;">
+		<p:row>
+			<p:column>
+				<h:outputLabel value="Login" for="login" />
+			</p:column>
+			<p:column>
+				<h:inputText id="login" value="#{personaBackingBean.persona.login}"></h:inputText>
+				<h:message for="login"/>
+			</p:column>
+		</p:row>
+		<p:row>
+			<p:column>
+				<h:outputLabel value="Password" for="password" />
+			</p:column>
+			<p:column>
+				<h:inputText id="password" value="#{personaBackingBean.persona.password}"></h:inputText>
+				<h:message for="password"/>		
+			</p:column>
+		</p:row>
+		<p:row>
+			<p:column>
+				<h:outputLabel value="Nombre" for="nombre" />
+			</p:column>
+			<p:column>
+				<h:inputText id="nombre" value="#{personaBackingBean.persona.nombre}"></h:inputText>
+				<h:message for="nombre"/>		
+			</p:column>
+		</p:row>
+		<p:row>
+			<p:column>
+				<h:outputLabel value="Apellido" for="apellido" />
+			</p:column>
+			<p:column>
+				<h:inputText id="apellido" value="#{personaBackingBean.persona.apellido}"></h:inputText>
+				<h:message for="apellido"/>		
+			</p:column>
+		</p:row>
+		<p:row>
+			<p:column>
+				<h:outputLabel value="Edad" for="edad" />
+			</p:column>
+			<p:column>
+				<h:inputText id="edad" value="#{personaBackingBean.persona.edad}"></h:inputText>
+				<h:message for="edad"/>		
+			</p:column>
+		</p:row>
+		<p:row>
+			<p:column>
+				<h:outputLabel value="Altura" for="altura" />
+			</p:column>
+			<p:column>
+				<h:inputText id="altura" value="#{personaBackingBean.persona.altura}"></h:inputText>
+				<h:message for="altura"/>		
+			</p:column>
+		</p:row>
+		<p:row>
+			<p:column colspan="2">
+				<h:commandButton action="#{personaBackingBean.registrar()}" value="Alta"></h:commandButton>
+				<h:button outcome="login?faces-redirect=true" value="Cancelar"/>
+			</p:column>
+		</p:row>
+	</p:panelGrid>
+		
+		
+		
+		
+		
+		
 	</h:form>
 </h:head>
 <body>

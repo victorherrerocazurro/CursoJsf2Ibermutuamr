@@ -1,37 +1,56 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html"> 
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
 
-<h:head></h:head> 
-<h:body> 
+<ui:composition template="/WEB-INF/templates/plantilla.xhtml">
 
-	<f:event listener="#{personaBackingBean.checkLogin}" type="preRenderView"></f:event>
+	<ui:define name="pageTitle">Home</ui:define>
 
-	<h:form>
-		<h:commandLink action="#{personaBackingBean.logout}" value="logout" />
-	</h:form>
+	<ui:define name="pageHeader">
+		<f:event listener="#{personaBackingBean.checkLogin}"
+			type="preRenderView"></f:event>
 
-	<h:outputText value="Hola #{sessionScope.persona.nombre} #{sessionScope.persona.apellido}"/>
-	
-	<h:outputText value="Tu ideal es #{personaBackingBean.ideal.nombre} #{personaBackingBean.ideal.apellido}"/>
+		<p:panelGrid columns="2" layout="grid">
+			<h:outputText
+				value="Hola #{sessionScope.persona.nombre} #{sessionScope.persona.apellido}" />
+			<h:form>
+				<h:commandLink action="#{personaBackingBean.logout}" value="logout" />
+			</h:form>
+		</p:panelGrid>
+	</ui:define>
 
-	<h:outputText value="Tus aFines son"/>
+	<ui:define name="body">
+		<p:accordionPanel>
+			<p:tab title="Ideal">
+				<p:panelGrid columns="1" layout="grid">
+					<h:outputText
+						value="Tu ideal es #{personaBackingBean.ideal.nombre} #{personaBackingBean.ideal.apellido}" />
+				</p:panelGrid>
+			</p:tab>
+			<p:tab title="Afines">
+				<p:panelGrid columns="1" layout="grid">
+					<h:outputText value="Tus aFines son" />
+					<h:form>
+						<p:dataTable var="afin" value="#{personaBackingBean.afines}"
+							rows="10" paginator="true"
+							paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+							rowsPerPageTemplate="5,10,15">
+							<p:column headerText="Nombre" sortBy="#{afin.nombre}">
+								<h:outputText value="#{afin.nombre}" />
+							</p:column>
 
-	<h:dataTable value="#{personaBackingBean.afines}" var="afin" border="1">
-		<h:column id="columnaNombre">
-			<f:facet name="header">
-				<h:outputText value="Nombre"></h:outputText>
-			</f:facet>
-			#{afin.nombre}
-		</h:column>
-		<h:column id="columnaApellido">
-			<f:facet name="header">
-				<h:outputText value="Apellido"></h:outputText>
-			</f:facet>
-			#{afin.apellido}
-		</h:column>
-	</h:dataTable>
-</h:body> 
+							<p:column headerText="Apellido" sortBy="#{afin.apellido}">
+								<h:outputText value="#{afin.apellido}" />
+							</p:column>
+						</p:dataTable>
+					</h:form>
+				</p:panelGrid>
+			</p:tab>
+		</p:accordionPanel>
+	</ui:define>
+
+</ui:composition>
 </html>

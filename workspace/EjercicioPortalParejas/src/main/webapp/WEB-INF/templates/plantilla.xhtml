@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+	<title><ui:insert name="pageTitle">Page Title</ui:insert></title>
+	<h:outputStylesheet name="css/screen.css" />
+	<h:outputScript library="primefaces" name="jquery/jquery.js"></h:outputScript>
+</h:head>
+<h:body>
+	<header>
+		<ui:insert name="pageHeader">Page Header</ui:insert>
+	</header>
+	<section>
+		<ui:insert name="body">Page Body</ui:insert>
+	</section>
+	<footer>
+		<ui:insert name="pageFooter">Page Footer</ui:insert>
+	</footer>
+</h:body>
+</html>
