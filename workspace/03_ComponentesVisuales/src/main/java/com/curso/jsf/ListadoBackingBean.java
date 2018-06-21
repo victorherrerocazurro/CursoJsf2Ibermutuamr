@@ -6,8 +6,10 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
+import javax.faces.component.html.HtmlOutputText;
+import javax.faces.event.ActionEvent;
 
-@ManagedBean
+@ManagedBean(name="backingBean")
 @RequestScoped
 public class ListadoBackingBean {
 
@@ -30,6 +32,36 @@ public class ListadoBackingBean {
 		return lista;
 	}
 	
+	public String metodo(String accion) {
+		return null;
+	}
 	
+	public String accion(String accion) {
+		return null;
+	}
+	
+	public void establecerOrigen(ActionEvent event) {
+		
+	}
+	
+	private boolean mostrar = false;
+
+	private HtmlOutputText outputText;
+
+	public boolean isMostrar() {
+		return mostrar;
+	}
+
+	public void setMostrar(boolean mostrar) {
+		this.mostrar = mostrar;
+	}
+
+	public HtmlOutputText getOutputText() {
+		return outputText;
+	}
+
+	public void setOutputText(HtmlOutputText outputText) {
+		this.outputText = outputText;
+	}
 	
 }

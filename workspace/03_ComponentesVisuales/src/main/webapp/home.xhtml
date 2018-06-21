@@ -1,12 +1,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"> 
 
 <h:head></h:head> 
 <h:body>
-	<h:dataTable border="1" value="#{listadoBackingBean.lista}" var="item" >
+	<h:dataTable border="1" value="#{backingBean.lista}" var="item" >
 		<h:column id="column1">
 			<f:facet name="header">
 				<h:outputText value="Nombre"></h:outputText>
@@ -33,10 +32,14 @@
 	</h:form>
 	<h:form>
 		<h:commandButton immediate="true" value="index"></h:commandButton>
-		<h:commandButton action="#{backingBean.metodo('borrar')}"></h:commandButton>
-		<h:commandButton actionListener="#{backingBean.establecerOrigen}" action="#{backingBean.accion}"></h:commandButton>
+		<h:commandButton action="#{backingBean.metodo('borrar')}">
+			<f:ajax execute="@form" render="@form"></f:ajax>
+		</h:commandButton>
+		<h:outputText id="aCambiar" value="outputText"></h:outputText>
+		<h:commandButton actionListener="#{backingBean.establecerOrigen}" 
+								action="#{backingBean.accion}"></h:commandButton>
 	</h:form>
-	<h:outputText value="CommandLink" rendered="#{backingBea.mostrar}"></h:outputText>
+	<h:outputText value="CommandLink" rendered="#{backingBean.mostrar}"></h:outputText>
 	<h:outputText value="CommandLink" binding="#{backingBean.outputText}"></h:outputText>
 </h:body> 
 </html>
